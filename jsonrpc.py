@@ -43,4 +43,5 @@ def jsonrpc(http, http_port, ws, ws_port, path):
 
 
 if __name__ == '__main__':
-    jsonrpc()
+    jsonrpc(http='1',http_port='',ws='',ws_port='',path='')
+    print(os.path.isfile('jsonrpc.json'))
