@@ -6,7 +6,7 @@
 
 # -*- coding: utf-8 -*-
 import json
-import time
+import os
 
 
 def load():
@@ -24,3 +24,5 @@ if __name__ == "__main__":
 
     data = load()
     print data["http_config"]["enable"]
+    os.remove("jsonrpc.json")
+    print(os.path.isfile('jsonrpc.json'))
