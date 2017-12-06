@@ -5,10 +5,12 @@
 # @File    : test_jsonrpc.py
 import unittest
 import os
-import jsonrpc
 import json
+import jsonrpc
 
 class TestJsonrpc(unittest.TestCase):
+    """Test jsonrpc.py"""
+
 
     def setUp(self):
         print "do something before test.Prepare evironment"
@@ -18,7 +20,7 @@ class TestJsonrpc(unittest.TestCase):
         os.remove("jsonrpc.json")
 
     def load(self):
-        with open('jsonrpc.json') as jsonrpc:
+        with open('jsonrpc_result.json') as jsonrpc:
             data = json.load(jsonrpc)
             return data
 

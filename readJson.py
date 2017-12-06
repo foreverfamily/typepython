@@ -10,7 +10,7 @@ import os
 
 
 def load():
-    with open('jsonrpc.json') as jsonrpc:
+    with open('jsonrpc1.json') as jsonrpc:
         data = json.load(jsonrpc)
         return data
 
