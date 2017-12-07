@@ -12,6 +12,7 @@
 
 ## 学习笔记
 1、删除服务器文件，本地文件保留
+
 git rm --cached -r .idea
 
 git commit -m "remove .idea"
