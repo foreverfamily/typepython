@@ -17,7 +17,7 @@ class TestJsonrpc(unittest.TestCase):
 
     def tearDown(self):
         print "Do something after test.Clean up"
-        os.remove("jsonrpc.json")
+        os.remove("jsonrpc_result.json")
 
     def load(self):
         with open('jsonrpc_result.json') as jsonrpc:
@@ -27,7 +27,7 @@ class TestJsonrpc(unittest.TestCase):
     def test_jsonrpc(self):
         jsonrpc.jsonrpc(http='www.baidu.com', http_port='8080', ws='shop.dianjia.io', ws_port='8888', path='')
         # print(os.path.isfile("jsonrpc.json"))
-        self.assertTrue(os.path.isfile("jsonrpc.json"))
+        self.assertTrue(os.path.isfile("jsonrpc_result.json"))
         data = self.load()
         self.assertEqual("www.baidu.com",data["http_config"]["enable"])
         self.assertEqual("shop.dianjia.io",data["ws_config"]["enable"])

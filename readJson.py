@@ -22,7 +22,8 @@ if __name__ == "__main__":
     # data["last"]=time.strftime("%Y%m%d")
     # store(data)
 
-    data = load()
-    print data["http_config"]["enable"]
-    os.remove("jsonrpc.json")
-    print(os.path.isfile('jsonrpc.json'))
+    # data = load()
+    # print data["http_config"]["enable"]
+    # os.remove("jsonrpc.json")
+    # print(os.path.isfile('jsonrpc.json'))
+    print(os.path.join('HTMLReport.html'))
