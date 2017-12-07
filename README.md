@@ -1,6 +1,5 @@
 # study python
 
-study python
 python2.7
 pip install selenium
 
