@@ -12,18 +12,24 @@ class TestJsonrpc(unittest.TestCase):
     """Test jsonrpc.py"""
 
 
+    def setUp(self):
+        print "do something before test.Prepare evironment"
+
+    def tearDown(self):
+        print "Do something after test.Clean up"
+        os.remove("jsonrpc.json")
+
     def load(self):
         with open('jsonrpc_result.json') as jsonrpc:
             data = json.load(jsonrpc)
             return data
 
     def test_jsonrpc(self):
-        jsonrpc.jsonrpc(http='1', http_port='', ws='', ws_port='', path='')
-        print(os.path.isfile("jsonrpc_result.json"))
-        self.assertTrue(os.path.isfile("jsonrpc_result.json"))
+        jsonrpc.jsonrpc(http='www.baidu.com', http_port='8080', ws='shop.dianjia.io', ws_port='8888', path='')
+        # print(os.path.isfile("jsonrpc.json"))
+        self.assertTrue(os.path.isfile("jsonrpc.json"))
         data = self.load()
-        self.assertEqual("1",data["http_config"]["enable"])
-
-if __name__ == '__main__':
-
-    unittest.main()
+        self.assertEqual("www.baidu.com",data["http_config"]["enable"])
+        self.assertEqual("shop.dianjia.io",data["ws_config"]["enable"])
+        self.assertEqual("8080",data["http_config"]["listen_port"])
+        self.assertEqual("8888",data["ws_config"]["listen_port"])

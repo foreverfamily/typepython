@@ -6,6 +6,7 @@
 
 # -*- coding: utf-8 -*-
 import json
+import os
 
 
 def load():
@@ -22,4 +23,6 @@ if __name__ == "__main__":
     # store(data)
 
     data = load()
-    print (data["http_config"]["enable"])
+    print data["http_config"]["enable"]
+    os.remove("jsonrpc.json")
+    print(os.path.isfile('jsonrpc.json'))
