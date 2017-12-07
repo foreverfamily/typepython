@@ -1,7 +1,7 @@
 # study python
 
-python2.7
-pip install selenium
+1、python2.7
+2、pip install selenium
 
 ## 开发规范
 
