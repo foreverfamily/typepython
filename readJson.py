@@ -6,11 +6,11 @@
 
 # -*- coding: utf-8 -*-
 import json
-import time
+import os
 
 
 def load():
-    with open('jsonrpc.json') as jsonrpc:
+    with open('jsonrpc1.json') as jsonrpc:
         data = json.load(jsonrpc)
         return data
 
@@ -22,5 +22,8 @@ if __name__ == "__main__":
     # data["last"]=time.strftime("%Y%m%d")
     # store(data)
 
-    data = load()
-    print data["http_config"]["enable"]
+    # data = load()
+    # print data["http_config"]["enable"]
+    # os.remove("jsonrpc.json")
+    # print(os.path.isfile('jsonrpc.json'))
+    print(os.path.join('HTMLReport.html'))

@@ -36,12 +36,12 @@ def jsonrpc(http, http_port, ws, ws_port, path):
     data["ws_config"] = ws_config
     data["new_tx_flow_config"] = dict(count_per_batch = 30, buffer_duration = 30000000)
 
-    dump_path = os.path.join(path, "jsonrpc.json")
+    dump_path = os.path.join(path, "jsonrpc_result.json")
     f = open(dump_path, "w")
     json.dump(data, f, indent = 4)
     f.close()
 
 
 if __name__ == '__main__':
-    jsonrpc(http='1',http_port='',ws='',ws_port='',path='')
+    jsonrpc(http='www.baidu.com',http_port='8080',ws='shop.dianjia.io',ws_port='8888',path='')
     print(os.path.isfile('jsonrpc.json'))
