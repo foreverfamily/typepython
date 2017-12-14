@@ -5,6 +5,7 @@
 # @File    : test_recursion_depth
 import pytest
 
+#本来应该是执行失败的，可是执行成功了，为什么？？？
 def test_recursion_depth():
     with pytest.raises(ZeroDivisionError) as excinfo:
         1/0
