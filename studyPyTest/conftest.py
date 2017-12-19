@@ -21,6 +21,7 @@ def test_histogram(image_file):
     # compute and test histogram
 """
 
+"""
 def test_func_fact():
     print("fast")
 
@@ -31,4 +32,10 @@ def test_func_slow_1():
 @pytest.mark.xfail(not pytest.config.getoption("--runslow"))
 def test_func_slow_2():
     print("xfail slow")
+"""
 
+from test_foocompare import Foo
+def pytest_assertrepr_compare(op, left, right):
+    if isinstance(left, Foo) and isinstance(left, Foo) and op == "==":
+        return ['Comparing Foo instance:',
+                '    vals: %s != %s' %(left.val, right)]
