@@ -4,7 +4,7 @@
 # @Author  : gonghuihui
 # @File    : conftest.py
 import pytest
-
+import smtplib
 # content of conftest.py
 
 """
@@ -19,9 +19,8 @@ def image_file(tmpdir_factory):
 def test_histogram(image_file):
     img = load_image(image_file)
     # compute and test histogram
-"""
 
-"""
+
 def test_func_fact():
     print("fast")
 
@@ -32,10 +31,21 @@ def test_func_slow_1():
 @pytest.mark.xfail(not pytest.config.getoption("--runslow"))
 def test_func_slow_2():
     print("xfail slow")
-"""
 
+"""
 from test_foocompare import Foo
 def pytest_assertrepr_compare(op, left, right):
-    if isinstance(left, Foo) and isinstance(left, Foo) and op == "==":
+    if isinstance(left, Foo) and isinstance(right, Foo) and op == "==":
         return ['Comparing Foo instance:',
                 '    vals: %s != %s' %(left.val, right)]
+
+
+# content of test_module
+@pytest.fixture(scope="module")
+def smtp(request):
+    server = getattr(request.module, "smtpserver", "smtp.mail.com")
+    smtp = smtplib.SMTP("smtp.gmail.com", 587, timeout=5)
+    yield smtp
+    print("finalizing %s (%s)" %(smtp, server))
+    smtp.close()
+
